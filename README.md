@@ -1,5 +1,5 @@
 # Automatic_Surat_Pdt
-This Repository contains the files made in `Python 3.10`, needed to built a `Surat`. This repo contains a `Online Google Docs` parser by `html`, a `docx editor` methods, and the `json` to built it. Further details is contain within the file
+This Repository contains the files made in `Python 3.10`, needed to built a `Surat`. This repo contains a `Online Google Docs` parser by `html`, a `docx editor` methods, and the `json` to built it. Further details is contain within the file.
 
 ## Usage: ##
 
