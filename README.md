@@ -29,6 +29,9 @@ and contains the zip file `Month Year.zip`, in this case `Januari 2025.zip`.
 
 
 Download the zip file, and you're good to go!
+_____
+The content of `Surat` can be seen below.
 
+![This is a Surat](https://github.com/EndlessWay1/images/blob/main/code_demo_surat_dpt_docx.png?raw=true)
 -----
 Created by Nickson Kiyoshi, as a side project in 11/12/2025.
