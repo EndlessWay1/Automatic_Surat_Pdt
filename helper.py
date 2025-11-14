@@ -48,13 +48,14 @@ class Liturgi():
                 while j < length and not re.match(r'^(\d+) (\w+) (\d+)?', docs_list[j]):
                     if (keys_in_set := re.match(r'^([A-Za-z ]+):(.*?)$', docs_list[j])):
                         # print(keys_in_set.group(1))
-                        if keys_in_set.group(1) in set_of_keys:
+                        grp1 = keys_in_set.group(1).strip()
+                        if grp1 in set_of_keys:
                             new_text = re.sub(r'[\u201c\u201d]', '"', keys_in_set.group(2))
                             new_text = re.sub(r'[\u2019\u2018]', "'", new_text)
-                            semi_dict[keys_in_set.group(1)] = new_text.strip()
+                            semi_dict[grp1] = new_text.strip()
 
                         # utk naro fokus ke list
-                        elif keys_in_set.group(1) == 'Fokus':
+                        elif grp1 == 'Fokus':
                             curr_fok = []
                             j += 1
                             while(j < length and (matches := re.match(r'^([^\:0-9]+)$', docs_list[j]))):
@@ -64,9 +65,9 @@ class Liturgi():
                                 j += 1
                             if curr_fok:
                                 j -= 1
-                            semi_dict[keys_in_set.group(1)] = curr_fok
+                            semi_dict[grp1] = curr_fok
 
-                        elif keys_in_set.group(1) == 'Lagu':
+                        elif grp1 == 'Lagu':
                             song_dic = {}
                             while j < length and not re.match(r'^(\d+) (\w+) (\d+).*?', docs_list[j]):
                                 j += 1
@@ -76,7 +77,7 @@ class Liturgi():
                                     song_dic[songs.group(1)] = new_text.strip()
                                     j += 1
                                     
-                            semi_dict[keys_in_set.group(1)] = song_dic
+                            semi_dict[grp1] = song_dic
                             continue
                     j += 1
                 set_of_mon[self._MONTHS_TO_INT[day_mon_yer.group(2).title()]][day_mon_yer.group(1)] = semi_dict
@@ -85,6 +86,7 @@ class Liturgi():
                 j+=1
 
         self.Dict_Months = set_of_mon
+
 
 class Jadwal():
     def __init__(self, url):
